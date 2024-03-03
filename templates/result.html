@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block body %}
+<div class="m-auto d-flex align-items-center justify-content-center h-75">
+  <audio id="audio">
+    <source src="/get_audio?timestamp={{timestamp}}" type="audio/mp3" />
+  </audio>
+  <div class="m-auto text-center">
+    <h3>Results</h3>
+    <i id="mic_icon" class="la la-microphone"></i>
+    <div class="row m-3">
+      <button id="play_pause_btn" class="btn btn-primary col-auto me-2">
+        Play
+      </button>
+      <a
+        id="back_btn"
+        class="btn btn-secondary col-auto"
+        href="{{ url_for('index_route') }}"
+      >
+        Back
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block myjs %}
+<script src="{{ url_for('static', filename='js/result.js') }}"></script>
+{% endblock myjs %} {% block mycss %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/result.css') }}"
+/>
+{% endblock mycss %}
